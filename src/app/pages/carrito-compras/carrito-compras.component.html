@@ -1,0 +1,8 @@
+<div>
+    <h2>Carrito de compras ({{totalProductos}})</h2>
+    <div *ngFor="let producto of productos">
+        <div>Producto ID: {{producto.productId}}</div>
+        <div>Cantidad: {{producto.cantidad}}</div>
+        <button (click)="eliminarDelCarrito(producto.productId!)">Eliminar del carrito</button>
+    </div>
+</div>

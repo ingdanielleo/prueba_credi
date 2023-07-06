@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row mt-3 mb-3">
+        <div class="col-12 text-center">
+            <h2>Categorias</h2>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col-12">
+            <ul class="list-group">
+                <li *ngFor="let categoria of categorias" class="list-group-item">{{categoria.name}}</li>
+
+            </ul>
+        </div>
+    </div>
+</div>

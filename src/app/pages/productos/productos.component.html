@@ -1,0 +1,78 @@
+<div class="container" *ngIf="estadoActual === 'todos'">
+    <div class="row mt-3 mb-3">
+        <div class="col-12 text-center">
+            <h2>Productos</h2>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let producto of productos;let i = index" (click)="verDetalle(producto.id)">
+
+            <div class="card">
+                <div id="carouselProducto{{i}}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div *ngFor="let image of producto.images;let j = index" [ngClass]="{'active': j==0}"
+                            class="carousel-item ">
+                            <img [src]="image" class="d-block w-100" alt="...">
+
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                            [attr.data-bs-target]="'#carouselProducto'+i" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            [attr.data-bs-target]="'#carouselProducto'+i" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.title}}</h5>
+                    <p class="card-text">{{producto.price | currency}}</p>
+                    <app-menu-flotante [producto]="producto"></app-menu-flotante>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf=" estadoActual === 'busqueda'">
+    <div class="row mt-3 mb-3">
+        <div class="col-12 text-center">
+            <h2>Productos</h2>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let producto of productos;let i = index">
+
+            <div class="card">
+                <div id="carouselProducto{{i}}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div *ngFor="let image of producto.images;let j = index" [ngClass]="{'active': j==0}"
+                            class="carousel-item ">
+                            <img [src]="image" class="d-block w-100" alt="...">
+
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                            [attr.data-bs-target]="'#carouselProducto'+i" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            [attr.data-bs-target]="'#carouselProducto'+i" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.title}}</h5>
+                    <p class="card-text">{{producto.price | currency}}</p>
+                    <app-menu-flotante [producto]="producto"></app-menu-flotante>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
